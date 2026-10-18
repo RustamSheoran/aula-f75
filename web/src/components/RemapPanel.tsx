@@ -118,7 +118,7 @@ export function RemapPanel({ onWriteKeybind }: {
         <span className="ml-auto text-xs text-zinc-500">Click a key, then choose its output. F1–F12 are reserved by the firmware.</span>
       </div>
 
-      <svg viewBox={`${geo.minX} ${geo.minY} ${vw} ${vh}`} className="w-full" style={{ maxHeight: 320 }}>
+      <svg viewBox={`${geo.minX} ${geo.minY} ${vw} ${vh}`} className="w-full select-none" style={{ maxHeight: 320 }}>
         {keymap.keys.map((k) => {
           const locked = !!k.locked;
           const selected = sel === k.index && !locked;
@@ -133,7 +133,7 @@ export function RemapPanel({ onWriteKeybind }: {
           );
         })}
         {keymap.keys.map((k) => (
-          <text key={"t" + k.index} x={k.x + k.w / 2} y={k.y + k.h / 2 + 3} textAnchor="middle" fontSize={11} fill="#e4e4e7">{k.label}</text>
+          <text key={"t" + k.index} x={k.x + k.w / 2} y={k.y + k.h / 2 + 3} textAnchor="middle" fontSize={11} fill="#e4e4e7" pointerEvents="none">{k.label}</text>
         ))}
       </svg>
 
